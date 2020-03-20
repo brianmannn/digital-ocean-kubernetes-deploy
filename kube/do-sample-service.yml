@@ -6,7 +6,7 @@ metadata:
   labels:
     app: do-kubernetes-sample-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: do-kubernetes-sample-app
   ports:
@@ -14,3 +14,7 @@ spec:
       targetPort: http
       name: http
       nodePort: 31000
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.0.2.127
